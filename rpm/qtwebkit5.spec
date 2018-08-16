@@ -37,6 +37,7 @@ BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(libxslt)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  gperf
 BuildRequires:  python
 BuildRequires:  bison
@@ -179,7 +180,7 @@ qmake -qt=5 CONFIG+=release CONFIG-=debug \
        WEBKIT_CONFIG-=netscape_plugin_api \
        WEBKIT_CONFIG-=build_qttestsupport
 
-make %{?jobs:-j%jobs}
+make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
